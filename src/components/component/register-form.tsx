@@ -34,6 +34,8 @@ import  Link  from "next/link"
 import { useState } from "react"
 import axios from 'axios';
 import { connectDb } from "@/lib/mongoDb"
+import { useRouter } from "next/navigation"
+
 
 export function RegisterForm() {
 
@@ -43,6 +45,8 @@ export function RegisterForm() {
   const [employment,setEmployment] = useState('');
 
   const [error,setError] = useState('');
+
+  const router = useRouter();
 
   const handleSubmit = async(e:any) =>{
     e.preventDefault();
@@ -60,8 +64,9 @@ export function RegisterForm() {
 
       const {user} = await res2.data;
       if(user){
-        setError('User already exists');
-        return;
+          setError('User already exists');
+          return;
+
       }
     const res =  await  axios.post('/api/register',{
       name,
@@ -77,6 +82,9 @@ export function RegisterForm() {
       }else{
         console.log('something went wrong')
       }
+
+      router.push('/login')
+
     }catch(err){
       console.log(err)
     }

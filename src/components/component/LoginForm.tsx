@@ -34,15 +34,46 @@ import { useState } from "react"
 import { redirect } from "next/dist/server/api-utils"
 import { useRouter } from "next/navigation"
 import { signIn } from "next-auth/react"
+import { Router } from "lucide-react";
 
 export function LoginForm() {
 
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState('');
   const [error,setError] = useState('');
+  const router = useRouter();
+
+  const handleLogin = async(e:any)=>{
+    e.preventDefault();
+    try{
+      if(!email || !password){
+        setError('Please fill all the fields');
+        return;
+      }
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if(!emailRegex.test(email)){
+        setError('Please enter a valid email');
+        return;
+      }
+
+      const res = await signIn('credentials',{
+        email,password,redirect:false
+      })
+
+      if(res?.error){
+        setError(res.error);
+        return;
+      }
+
+      router.push("/dashboard")
+      
+    }catch(err){
+      console.log(err);
+    }
+  }
 
   return (
-    <form className="flex items-center justify-center h-screen">
+    <form className="flex items-center justify-center h-screen" onSubmit={handleLogin}>
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center space-y-2">
           <CardTitle className="text-2xl font-bold">Login</CardTitle>
@@ -60,7 +91,7 @@ export function LoginForm() {
         </CardContent>
         <CardFooter className="flex justify-center flex-col space-y-4">
           <Button className="w-full">Login</Button>
-          <Button  className="w-full" variant="outline">
+          <Button onClick={()=>signIn("google")}  className="w-full" variant="outline">
             Login with Google
           </Button>
           <h1>Not a Member? <Link href="/register" className="text-blue-700">Register Here</Link></h1>
