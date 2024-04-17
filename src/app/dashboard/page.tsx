@@ -1,5 +1,5 @@
 "use client";
-
+import { Dashboard } from '@/components/component/dashboard';
 import { signOut, useSession } from 'next-auth/react';
 import React from 'react';
 
@@ -8,9 +8,7 @@ function Page() {
 
     return (
         <div>
-            <h1>This Is The Dashboard</h1> 
-            {session && <span>{session.user?.name}</span>}
-            <button onClick={() => signOut()} className='rounded-lg bg-red-500 p-2'>Logout</button>   
+            <Dashboard/>
         </div>
     );
 }
