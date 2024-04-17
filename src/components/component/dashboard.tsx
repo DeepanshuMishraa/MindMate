@@ -108,14 +108,14 @@ export function Dashboard() {
                 <div className="flex items-start gap-2 flex-row-reverse">
                   <UserIcon className="w-8 h-8 rounded-full border" />
                   <div className="bg-gray-100 p-4 rounded-xl text-sm dark:bg-gray-800/40">
-                    Ready for your first challenge? Let's get started!
-                  </div>
+  Ready for your first challenge? Let&apos;s get started!
+</div>
                 </div>
                 <div className="flex items-start gap-2">
                   <UserIcon className="w-8 h-8 rounded-full border" />
                   <div className="bg-gray-100 p-4 rounded-xl text-sm dark:bg-gray-800/40">
   Remember, the most important thing is to be consistent. Even a little mental exercise every day can
-  make a big difference over time. Let's keep up the good work!
+  make a big difference over time. Let&apos;s keep up the good work!
 </div>
                 </div>
               </div>
