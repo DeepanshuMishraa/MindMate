@@ -80,7 +80,7 @@ export function Dashboard() {
               <UserIcon className="w-8 h-8 rounded-full border" />
               <div className="grid gap-1">
                 <CardTitle>John</CardTitle>
-                <CardDescription>Hey! How can I help you today? &apos;</CardDescription>
+                <CardDescription>Hey! How can I help you today?</CardDescription>
               </div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -100,10 +100,10 @@ export function Dashboard() {
                 <div className="flex items-start gap-2">
                   <UserIcon className="w-8 h-8 rounded-full border" />
                   <div className="bg-gray-100 p-4 rounded-xl text-sm dark:bg-gray-800/40">
-                    Hi! I'm John, your mental fitness assistant. I'm here to help you stay sharp, focused, and positive.
-                    You can talk to me about anything you like, whether it's a problem you're facing, an achievement you
-                    want to celebrate, or just to say hello!
-                  </div>
+  Hi! I&apos;m John, your mental fitness assistant. I&apos;m here to help you stay sharp, focused, and positive.
+  You can talk to me about anything you like, whether it&apos;s a problem you&apos;re facing, an achievement you
+  want to celebrate, or just to say hello!
+</div>
                 </div>
                 <div className="flex items-start gap-2 flex-row-reverse">
                   <UserIcon className="w-8 h-8 rounded-full border" />
@@ -114,9 +114,9 @@ export function Dashboard() {
                 <div className="flex items-start gap-2">
                   <UserIcon className="w-8 h-8 rounded-full border" />
                   <div className="bg-gray-100 p-4 rounded-xl text-sm dark:bg-gray-800/40">
-                    Remember, the most important thing is to be consistent. Even a little mental exercise every day can
-                    make a big difference over time. Let's keep up the good work!
-                  </div>
+  Remember, the most important thing is to be consistent. Even a little mental exercise every day can
+  make a big difference over time. Let's keep up the good work!
+</div>
                 </div>
               </div>
             </CardContent>
