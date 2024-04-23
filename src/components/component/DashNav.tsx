@@ -30,24 +30,27 @@ To read more about using these font, please visit the Next.js documentation:
   --radius: 0.5rem;
 }
 **/
+import { signOut, useSession } from "next-auth/react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export function Navbar() {
+  const router = useRouter();
+
+  const session = useSession()
   return (
-    <header className="flex h-16 w-full shrink-0 items-center px-4 ">
+    <header className="flex h-16 w-full shrink-0 items-center px-4 md:px-6">
       <Link className="mr-6" href="/">
         <div className="flex gap-2">
         <SunIcon className="h-6 w-6" />
         <h1 className="font-bold">MindMate</h1>
         </div>
       </Link>
-      <nav className="flex-1 justify-end space-x-4 lg:flex">
-        <Link className="font-medium hover:scale-105 duration-150" href="/register">
-          Register
-        </Link>
-        <Link className="font-medium hover:scale-110 duration-150" href="/dashboard">
-          Dashboard
-        </Link>
+      <nav className="flex-1 justify-end  space-x-4 lg:flex">
+        <button onClick={()=>signOut()}>Logout</button>
+        <button onClick={()=>{
+          router.push("/id")
+        }} className="text-blue-600 rounded bg-white p-2">Hello {JSON.stringify(session.data?.user?.name)}</button>
       </nav>
     </header>
   )
