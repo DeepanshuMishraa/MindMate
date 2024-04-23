@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
-const page = () => {
+const Page = () => {
     const session = useSession();
 
     return (
@@ -27,4 +27,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
